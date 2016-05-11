@@ -87,7 +87,11 @@
                         </div>
                     </div>
                     <div class="col-sm-6 padding-left-none padding-left-half-xs">
-                        <?php the_content(); ?>
+					<?php if ($post->bw_meta['campaign_status'] === 'complete') { ?>
+						<h4 style="color: red;">Please note: this campaign has ended.</h4>
+					<?php
+					}
+					the_content(); ?>
                     </div>
                 </div>
             </div>
