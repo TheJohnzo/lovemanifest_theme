@@ -1,0 +1,21 @@
+<div class="col-md-12">
+        <h2 class="h3"><strong>User</strong> Settings</h2>
+        <message message-group="usersection"></message>
+</div>
+<div class="col-md-12">
+    <div
+        ng-repeat="(name, fieldOptions) in user.settings"
+        ng-switch on="fieldOptions.type"
+        class="padding-vert-half col-xs-{{fieldOptions.size || '12'}}">
+
+            <label>{{fieldOptions.label}}</label>
+            <input class="form-control" type="text" ng-model="user[name]" ng-switch-when="text" />
+            <input class="form-control" type="email" ng-model="user[name]" ng-switch-when="email" />
+
+            <message message-group="field_{{name}}"></message>
+
+    </div>
+    <div class="padding-vert-half text-right" style="clear:both">
+        <button user-action action="saveInfo" ready-icon="cog fa-lg" send-user="user">Save Settings</button>
+    </div>
+</div>

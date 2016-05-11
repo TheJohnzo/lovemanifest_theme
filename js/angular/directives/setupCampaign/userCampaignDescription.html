@@ -1,0 +1,16 @@
+<div ng-show="showActivityDetails" class="row bg-dark cascade-text-color margin-vert padding text-center">
+    <p class="h3 blue-block padding-half">You've Chosen to {{userCampaign.methods_readable[userCampaign.method]}}!</p>
+    <div>
+        <label for="description" class="h4 padding-vert">
+            Let everyone know what your {{userCampaign.method}} is all about!
+        </label>
+        <div
+                text-angular="text-angular"
+                ng-model="userCampaign.description"
+                ta-disabled='descriptionDisabled'
+                id='description'
+                class="text-left"
+                rows="10">
+        </div>
+    </div>
+</div>

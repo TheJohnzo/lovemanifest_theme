@@ -1,0 +1,27 @@
+<div ng-show="showActivities" class="row bg-dark cascade-text-color margin-vert padding text-center">
+    <h2 class="h3 blue-block padding-half">Your Going to Raise {{userCampaign.goal | currency}} for {{userCampaign.campaign_title}}</h2>
+    <p class="h4 margin-vert">How Would You Like To Campaign?</p>
+    <div class="row">
+        <div class="col-sm-4 margin-vert-xs">
+            <button ng-click="userCampaign.method = 'occasion'; showActivityDetails = true" class="padding btn btn-primary btn-content border-none">
+                <p><img class="size-full wp-image-164" title="Occasion Graphic" alt="A cake with lit candles" src="http://development.lovemanifest.org/wp-content/uploads/2014/01/donate-occasion-graphic.png" width="253" height="137"></p>
+                <h3>Donate An Occasion</h3>
+                <p>Give up your birthday or wedding gifts. Honor a Special Occasion or Person close to your heart.</p>
+            </button>
+        </div>
+        <div class="col-sm-4 margin-vert-xs">
+            <button ng-click="userCampaign.method = 'activity'; showActivityDetails = true" class="padding btn btn-primary btn-content border-none">
+                <p><img class="alignnone size-full wp-image-162" title="Athletics Graphic" alt="A Bicycle" src="http://development.lovemanifest.org/wp-content/uploads/2014/01/be-athletic-graphic.png" width="219" height="137"></p>
+                <h3>Be Athletic</h3>
+                <p>Run. Swim. Ride a unicycle cross country. Just decide on something awesome to do and get people to sponsor your action.</p>
+            </button>
+        </div>
+        <div class="col-sm-4 margin-vert-xs">
+            <button ng-click="userCampaign.method = 'idea'; showActivityDetails = true" class="padding btn btn-primary btn-content border-none">
+                <p><img class="alignnone size-full wp-image-163" title="Your Way Graphic" alt="A lit up light bulb" src="http://development.lovemanifest.org/wp-content/uploads/2014/01/do-it-your-way.png" width="128" height="137"></p>
+                <h3>Do it Your Way</h3>
+                <p>We believe in you! If your brain is bubbling with ideas to raise money for your cause, bring them to life and donate the procedes</p>
+            </button>
+        </div>
+    </div>
+</div>

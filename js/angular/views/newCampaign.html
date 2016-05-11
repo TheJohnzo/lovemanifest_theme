@@ -1,0 +1,175 @@
+<div class="col-md-12 clearfix">
+    <h2 class="h3 pull-left"><strong>Create A New</strong> Campaign!</h2>
+    <button class="btn btn-complete pull-right" style="margin-top: 5px;" ng-click="selectStage(0)" ng-show="currentStageIndex"><i class="fa fa-lg fa-sign-in fa-flip-horizontal"></i> Changed Your Mind? Choose a Different Campaign</button>
+    <message message-group="usersection"></message>
+</div>
+<div class="col-md-12" stages>
+
+    <div stage>
+        <campaign-select-block
+                ng-repeat="campaign in app.campaigns"
+                ng-model="campaign"
+                class="col-xs-12 col-md-6">
+        </campaign-select-block>
+    </div>
+
+    <div stage validate="[$parent.newCampaign.title]" class="container">
+        <div class="row bg-dark cascade-text-color padding-half padding-left-none min-height-200 relative">
+            <div class="col-sm-7 col-md-6 padding-horz-half campaign-title">
+                <h2 class="h4">
+                    You've Chosen To Campaign For
+                    <strong class="h2 space-top block margin-vert" style="display:block">{{newCampaign.campaign_title}}</strong>
+                </h2>
+            </div>
+            <div class="col-sm-5 col-md-6 padding-none campaign-image absolute top-right-padding fill-height-absolute-padding" style="{{newCampaign.image | backgroundImageCss}}"></div>
+        </div>
+        <div class="space-top row">
+            <h2 class="text-left"><i class="fa fa-smile-o"></i> <strong>Name</strong> Your Campaign</h2>
+            <div class="col-sm-8">
+                <input ng-model="$parent.newCampaign.title" ng-change="validateStage(this)" class="form-control " />
+            </div>
+            <button class="btn btn-primary col-sm-4 btn-lg" ng-class="{ disabled: !validation[1] }" ng-click="forward(1)"> Continue <i class="fa fa-arrow-circle-right"></i></button>
+        </div>
+    </div>
+
+    <div stage class="text-center">
+        <h3 class="padding-half bg-dark">
+            INDIVIDUAL OR TEAM?
+        </h3>
+        <div class="container">
+            <div class="row space-top">
+                <div class="col-xs-6">
+                    <div class="inner blue-block circle-parent" ng-click="newCampaign.type = 'single'; forward(2);">
+                        <p>Choose to campaign by yourself!</p>
+                        <button type="button" class="circle"><i class="fa fa-user"></i><span class="text">Individual</span></button>
+                    </div>
+                </div>
+                <div class="col-xs-6 blue-block">
+                    <div class="inner blue-block circle-parent" ng-click="newCampaign.type = 'group'; forward(1);">
+                        <p>Or together with group of other members!</p>
+                        <button type="button" class="circle"><i class="fa fa-users"></i><span class="text">Team</span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div stage validate="[$parent.newCampaign.team]">
+        <h3 class="padding-half bg-dark ng-scope">
+            You've chosen to campaign as {{app.campaign_types[newCampaign.type] | prependA}}
+        </h3>
+        <div class="container margin-vert">
+            <div class="row">
+                <div class="col-xs-6">
+                    <div class="inner blue-block circle-parent">
+                        <h3><strong>Select</strong> An Existing Team</h3>
+                        <select
+                            class="form-control select-lg margin-vert-half"
+                            ng-model="newCampaign.team"
+                            ng-change="validateStage(this)"
+                            ng-options="id as name for (id, name) in user.teams" />
+
+                        <button class="btn btn-default btn-lg fill-width" ng-click="forward(1)" ng-class="{ disabled: !validation[3] }">
+                            Select <i class="fa fa-arrow-circle-right"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="inner blue-block circle-parent">
+                        <h3><strong>Create</strong> A New Team</h3>
+
+                        <div class="margin-vert-half">
+                            <input ng-model="teamToCreate" class="form-control" />
+                            <message message-group="create_team"></message>
+                        </div>
+                        <button
+                                user-action
+                                action="newTeam"
+                                append-icon
+                                no-classes
+                                callback="afterCreateTeam"
+                                send-name="teamToCreate"
+                                ready-icon="arrow-circle-right"
+                                class="btn btn-default btn-lg fill-width">
+                            Create Team
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div stage validate="[$parent.goalValid()]">
+        <h3 class="padding-half bg-dark">
+            What is
+            <span ng-if="newCampaign.type == 'single'">Your</span>
+            <span ng-if="newCampaign.type == 'group'">{{user.teams[ newCampaign.team ]}}'s</span>
+            Campaign Goal?
+        </h3>
+        <div class="col-sm-8">
+            <input
+                    type='text'
+                    ng-model="$parent.newCampaign.goal"
+                    currency
+                    ng-change="validateStage()"
+                    ng-blur="showActivities = true"
+                    ng-keydown="donationKeyDown($event)"
+                    class="input-lg form-control overlay-control-blue text-center"
+                    placeholder="$0.00"
+                    />
+        </div>
+        <button class="btn btn-primary col-sm-4 btn-lg" ng-class="{ disabled: !validation[4] }" ng-click="forward(1)"> Continue <i class="fa fa-arrow-circle-right"></i></button>
+    </div>
+
+    <div stage>
+        <h3 class="padding-half bg-dark">
+            Your Going to Raise {{newCampaign.goal | currency}} for {{newCampaign.campaign_title}}
+        </h3>
+        <p class="h4 margin-vert">How Would You Like To Campaign?</p>
+        <div class="margin-vert-half">
+            <button ng-click="$parent.newCampaign.method = 'occasion'; forward(1);" class="text-center padding btn btn-primary btn-content border-none fill-width">
+                <p><img class="size-full wp-image-164" title="Occasion Graphic" alt="A cake with lit candles" src="{{host}}wp-content/uploads/2014/01/donate-occasion-graphic.png" width="253" height="137"></p>
+                <h3>Donate An Occasion</h3>
+                <p>Give up your birthday or wedding gifts. Honor a Special Occasion or Person close to your heart.</p>
+            </button>
+        </div>
+        <div class="margin-vert-half">
+            <button ng-click="$parent.newCampaign.method = 'activity'; forward(1);" class="text-center padding btn btn-primary btn-content border-none fill-width">
+                <p><img class="alignnone size-full wp-image-162" title="Athletics Graphic" alt="A Bicycle" src="{{host}}wp-content/uploads/2014/01/be-athletic-graphic.png" width="219" height="137"></p>
+                <h3>Be Athletic</h3>
+                <p>Run. Swim. Ride a unicycle cross country. Just decide on something awesome to do and get people to sponsor your action.</p>
+            </button>
+        </div>
+        <div class="margin-vert-half">
+            <button ng-click="$parent.newCampaign.method = 'idea'; forward(1);" class="text-center padding btn btn-primary btn-content border-none fill-width">
+                <p><img class="alignnone size-full wp-image-163" title="Your Way Graphic" alt="A lit up light bulb" src="{{host}}wp-content/uploads/2014/01/do-it-your-way.png" width="128" height="137"></p>
+                <h3>Do it Your Way</h3>
+                <p>We believe in you! If your brain is bubbling with ideas to raise money for your cause, bring them to life and donate the procedes</p>
+            </button>
+        </div>
+    </div>
+    <div stage>
+        <h3 class="padding-half bg-dark">
+            Let everyone know what your {{newCampaign.method}} is all about!
+        </h3>
+        <div
+                text-angular="text-angular"
+                ng-model="$parent.newCampaign.description"
+                ta-disabled='descriptionDisabled'
+                id='description'
+                class="text-left"
+                rows="10">
+        </div>
+        <button
+                user-action
+                action="addCampaign"
+                no-classes
+                callback="afterLaunchCampaign"
+                send-campaign="$parent.newCampaign"
+                ready-icon="flag"
+                class="btn btn-primary btn-lg fill-width">
+            Launch My Campaign
+        </button>
+    </div>
+</div>

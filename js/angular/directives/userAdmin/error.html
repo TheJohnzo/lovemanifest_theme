@@ -1,0 +1,5 @@
+<div ng-show="$parent.messages.errors[group]" class="alert alert-danger">
+    <div ng-repeat="error in $parent.messages.errors[group]">
+        {{error[0]}}
+    </div>
+</div>

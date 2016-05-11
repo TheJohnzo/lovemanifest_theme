@@ -1,0 +1,20 @@
+
+<div ng-show="userCampaign.team != ''||userCampaign.type == 'single'" class="bg-dark cascade-text-color margin-vert padding-horz text-center">
+    <h2 class="h1 margin-vert">
+        What is
+        <span ng-show="userCampaign.type == 'single'">Your</span>
+        <span ng-show="userCampaign.type == 'group'">{{userCampaign.team}}'s</span>
+        Campaign Goal?
+    </h2>
+    <input
+            type='text'
+            ng-model="userCampaign.goal"
+            ng-blur="showActivities = true"
+            ng-keydown="donationKeyDown($event)"
+            class="margin-vert input-lg form-control overlay-control-blue text-center"
+            />
+    <button ng-click="showActivities = true" class="btn btn-outline col-xs-4 margin-vert center-block pull-none">
+        Continue<br>
+        <i class="fa fa-arrow-circle-down fa-2x"></i>
+    </button>
+</div>

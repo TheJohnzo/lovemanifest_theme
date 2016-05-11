@@ -1,0 +1,66 @@
+<div class="col-md-12 clearfix">
+    <div class="col-sm-6">
+        <div class="inner blue-block text-center min-h-200">
+            <hgroup>
+                <h2 class="h3">{{user.donation_total | currency}} Donated</h2>
+                <h3 class="h5">Personal Donations</h3>
+            </hgroup>
+            <p class="space-top">
+                <a href="{{host}}donate/" target="_self"><i class="fa fa-heart"></i> Make a New Donation</a>
+            </p>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="inner blue-block text-center min-h-200">
+            <hgroup>
+                <h2 class="h3">{{user.earning_total | currency}} Raised</h2>
+                <h3 class="h5">Donations Raised Through Campaigns</h3>
+            </hgroup>
+            <p class="space-top">
+                You have {{userCampaigns.length}} Active Campaign.<br><a href="{{host}}my-account/new-campaign/"><i class="fa fa-flag"></i> Launch a new Campain</a>
+            </p>
+        </div>
+    </div>
+</div>
+<div class="col-md-12 space-top padding-horz-half-xs">
+    <div class="container">
+        <div class="row">
+            <h3>
+                Campaigns:
+                <span
+                        ng-hide="!userCampaigns.length"
+                        ng-class="{
+                            'label-primary': campaignView == '',
+                            'label-success': campaignView == 'active',
+                            'label-complete': campaignView == 'complete'
+                        }"
+                        class="label">
+                {{campaignView | campaignViewReadable}}
+                </span>
+                <span ng-hide="userCampaigns.length">
+                    Empty <i class="fa fa-meh-o"></i>
+                </span>
+            </h3>
+            <div ng-hide="!userCampaigns.length">
+                <button class="col-xs-2 btn btn-sm btn-primary" ng-click="campaignView = ''">
+                    <i class="fa fa-th-large"></i> <span class="hidden-xs">&nbsp;All</span>
+                </button>
+                <button class="col-xs-2 btn btn-sm btn-success" ng-click="campaignView = 'active'" ng-show="userCampaigns.$hasActive">
+                    <i class="glyphicon glyphicon-stats"></i> <span class="hidden-xs">&nbsp;Active</span>
+                </button>
+                <button class="col-xs-2 btn btn-sm btn-complete" ng-click="campaignView = 'complete'" ng-show="userCampaigns.$hasComplete">
+                    <i class="fa fa-flag"></i> <span class="hidden-xs">&nbsp;Completed</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-12 padding-horz-half-xs">
+    <p ng-show="!userCampaigns.length" class="h1 padding-vert">
+        You don't have any campaigns yet.<br>
+        <a class="btn btn-primary" href="{{host}}my-account/new-campaign/">Let's get Started!</a>
+    </p>
+    <campaign-info-block
+        ng-repeat="campaign in userCampaigns | filter:{ status: campaignView }"
+    ></campaign-info-block>
+</div>

@@ -1,0 +1,114 @@
+html { background: url(img/grain-1.jpg) center top repeat #222; }
+body { background: rgba(255,255,255, 0.9); }
+.qr_image_cont { z-index: 0; }
+.qr_page_title, .qr_about_title { text-align: center; }
+.qr_title_cont { border-top: 8px solid #FFF; }
+.qr-receipt .qr_title_cont { padding-bottom: 20px; }
+.qr_page_title {
+	margin-bottom: 0;
+	padding-bottom: 62px;
+	background: url(img/heart-with-leaves.png) center bottom no-repeat;
+	color: #695600;
+	font: 48px/1 'Seaweed Script', cursive;
+	font-weight: normal;
+}
+.qr_page_title:before {
+	content: "";
+	display: block;
+	margin: -70px auto 20px;
+	width: 70px;
+	padding: 0 3px;
+	height: 76px;
+	background: #FFF url(img/logo-34x43.png) center center no-repeat;
+	
+	-moz-border-radius: 40px;
+	-webkit-border-radius: 40px;
+	border-radius: 40px;
+	
+	-moz-box-shadow: 0px 2px 12px #000000;
+	-webkit-box-shadow: 0px 2px 12px #000000;
+	box-shadow: 0px 2px 12px #000000;
+}
+.qr_about_title { font-family: 'Medula One', cursive; font-weight: normal; font-size: 48px; color: #a39039; }
+.qr_about_cont { z-index: 1; font-size: 18px; color: #5d5d5d; padding-bottom: 40px; overflow: hidden;  }
+.qr-checkout .qr_about_cont { border-top: 5px solid #716530;  margin-top: 20px;}
+.qr-receipt .qr_about_cont { border-top: 5px solid #CCC; background: #FFF; }
+.qr_donate_cont { background: #b9ab6a; padding: 45px 0; margin: 14px 0 12px; text-align: center; }
+.qr_donate_title { margin-top: 0; color: #746313; font: 60px/1 'Seaweed Script', cursive; text-align: center;}
+.qr_donate_cont:before {
+	content: "";
+	display: block;
+	width: 100%;
+	height: 22px;
+	position: absolute;
+	top: -14px;
+	left: 0;
+	background: url(img/layout1-donate-top.png) center top repeat-x;
+}
+.qr_donate_cont:after {
+	content: "";
+	display: block;
+	width: 100%;
+	height: 13px;
+	position: absolute;
+	bottom: -12px;
+	left: 0;
+	background: url(img/layout1-donate-bottom.png) center top repeat-x;
+}
+
+.fixed-price input[type=submit] {
+	max-width: 100%;
+	width: 200px;
+	height: 173px;
+	margin: 0 auto;
+	padding: 0;
+	border: medium none;
+	background: url(img/layout1-donate-heart.png) center center no-repeat transparent;
+	font-family: 'Medula One', cursive;
+	font-weight: normal;
+	font-size: 64px;
+	color: #6d5b00;
+}
+
+.Cart66UserPrice label { color: #d5cda6; font: 48px/1 'Medula One', cursive; font-weight: normal; text-transform: lowercase; }
+.qr_donate_cont .user-input { width: 100%; }
+.qr_donate_cont .user-input input[type=submit] {
+	color: #695600;
+	width: 100%;
+	font: 60px/1 'Seaweed Script', cursive;
+	background: none transparent;
+	border: medium none;
+}
+.input-block-level {
+	max-width: 70%;
+	padding: 8px;
+	margin: 12px auto 24px;
+	
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+}
+
+
+.qr_about_title, .qr_page_title { visibility: hidden; }
+.wf-active .qr_about_title, .wf-active .qr_page_title { visibility: visible; }
+
+.qr_site_link { text-align: center; padding: 40px 0 40px; }
+
+.qr_about_content #Cart66CartForm, .qr_about_content #paymentInfo, 
+.qr-receipt .qr_about_content #viewCartTable  { background: #b9ab6a; color: #FFF; }
+.qr_about_content #billingInfo {
+	background: #FFF;
+	
+	-moz-box-shadow: 0px 0px 20px 8px #000000;
+	-webkit-box-shadow: 0px 0px 20px 8px #000000;
+	box-shadow: 0px 0px 20px 8px #000000;
+}
+.qr_about_content .Cart66AjaxMessage.alert-error {
+	border-top: 5px solid #B94A48;
+	border-left: 0; border-right: 0;
+	-webkit-border-radius:0;-moz-border-radius:0;border-radius:0;
+}
+.Cart66UserPrice h3 { color: #FFF; }
+
+input[type=number] {display:block;width:80%;min-height:30px;margin:0 auto;padding: 6px 4px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}

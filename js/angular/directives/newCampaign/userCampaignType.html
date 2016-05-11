@@ -1,0 +1,24 @@
+<div class="row bg-dark cascade-text-color margin-vert padding">
+    <h2 class="h3 blue-block padding-half">You've chosen to campaign as {{userCampaign.types_readable[userCampaign.type] | prependA}}</h2>
+    <div ng-show="userCampaign.type == 'group'">
+        <div ng-show="!userInfo.teams.length">
+            <p class="h4 padding-vert">
+                You Don't Have Any Teams Yet &nbsp;<i class="fa fa-lg fa-meh-o"></i>
+            </p>
+            <button class="btn btn-outline" ng-click="openNewTeamWindow()">Lets Create One!</button>
+        </div>
+        <div ng-show="userInfo.teams.length" class="margin-vert">
+            <div class="col-sm-6 padding-none margin-vert-xs">
+                <label class="h4">Feeling Adventuresome?</label><br>
+                <button class="btn btn-outline" ng-click="openNewTeamWindow()">Create a New Team!</button>
+            </div>
+            <div class="col-sm-6 padding-none">
+                <label class="h4">Select An Existing Team</label>
+                <select ng-model="userCampaign.team" class="form-control">
+                    <option value="" selected>...</option>
+                    <option ng-repeat="team in userInfo.teams" value="{{team}}">{{team}}</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+<div class="campaign-block campaign-status-{{campaign.status}}" style="{{campaign.image | backgroundImageCss}}" >
+    <div class="overlay">
+        <div class="campaign-info container">
+            <div class="row">
+                <span class="col-xs-12 col-sm-6 inner text-left h5 strong text-shadow">
+                    {{campaign.title}} Campaign
+                </span>
+                <span class="col-xs-12 col-sm-6 inner text-right h5 strong text-shadow">
+                    <span ng-show="campaign.status == 'active'">Campaign Goal {{campaign.goal | currency}}<br></span>
+                    <button ng-show="campaign.status == 'active'" ng-click="campaign.status = 'complete'" class='btn btn-link text-complete static-xs'>Close Campaign</button>
+                    <strong ng-show="campaign.status == 'complete'">Complete</strong>
+                </span>
+                <span class="col-xs-12 text-center campaign-actions">
+                    <p ng-hide="campaign.status == 'pending'" class="h1 text-shadow">
+                        {{campaign.completion | currency}} Raised
+                    </p>
+                    <button ng-show="campaign.status == 'active'" class="btn btn-primary" ng-click="campaign.notification=!campaign.notification">
+                        <i class="fa" ng-class="{'fa-square-o': !campaign.notification, 'fa-check-square-o': campaign.notification}"></i>
+                        Send Me Notifications
+                    </button>
+                    <a ng-hide="campaign.status == 'pending'" ng-class="{'btn-outline': campaign.status == 'complete'}"class="btn btn-complete" href="{{campaign.url}}">
+                        <i class="fa fa-flag"></i>
+                        View Page
+                    </a>
+                    <a ng-show="campaign.status == 'pending'" class="btn btn-pending space-top" href="{{host}}setup-campaign/?campaign={{campaign.id}}">
+                        <i class="fa fa-external-link-square"></i>
+                        Setup Campaign
+                    </a>
+                </span>
+            </div>
+        </div>
+        <div ng-show="campaign.status == 'active'" class="completion-bar" completion-bar style="">
+            <p class="inner completion-text text-white exodemibold h4 text-shadow">{{campaign.completion_percentage | percentage }} Completed</p>
+        </div>
+    </div>
+</div>

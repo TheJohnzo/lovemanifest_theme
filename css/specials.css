@@ -1,0 +1,190 @@
+/**
+ *  More experimental or one off addons for individual styles
+ *
+ *  Main purpose of this file is to help keep the main structure and
+ *  themeing done style.css uncluttered and easier to navigate
+ *
+**/
+.circle {
+    margin: 0 auto;
+}
+.circle,
+.circle a {
+    position: relative;
+
+    display: block;
+    padding: 0;
+    color: #FFF;
+    font-size: 58px;
+    line-height: 102px;
+    width: 102px;
+    text-align: center;
+    background: #c2c2c2;
+    border: none;
+
+    -moz-border-radius: 9999px;
+    -webkit-border-radius: 9999px;
+    border-radius: 9999px;
+}
+button.circle,
+.circle a {
+    overflow: hidden;
+}
+.circle-parent:hover {
+    cursor: pointer;
+}
+button.circle { outline: none; }
+.blue-block .circle,
+.blue-block .circle a {
+    background: rgba(255,255,255, 0.4);
+}
+
+.circle-parent:hover button.circle,
+.circle-parent:hover .circle a,
+button.circle:hover,
+.circle a:hover {
+    background: #338ff2;
+}
+.blue-block.circle-parent:hover button.circle,
+.blue-block.circle-parent:hover .circle a,
+.blue-block button.circle:hover,
+.blue-block .circle a:hover {
+    background: #FFF;
+}
+.blue-block.circle-parent:hover .circle .text,
+.blue-block button.circle:hover .text,
+.blue-block .circle a:hover .text {
+    color: #338ff2;
+}
+.modal .circle {
+    background-color: #FFF;
+    background-color: rgba(255,255,255, 0.85);
+    color: #181200;
+
+    -webkit-transition: background 0.25s ease, color 0.25s ease;
+    -moz-transition: background 0.25s ease, color 0.25s ease;
+    -o-transition: background 0.25s ease, color 0.25s ease;
+    transition: background 0.25s ease, color 0.25s ease;
+}
+.modal .circle:hover {
+    background-color: #338ff2;
+    background-color: rgba(51,143,242, 0.85);
+}
+.modal .circle:hover .text {
+    color: #FFF;
+}
+.circle .fa {
+    vertical-align: middle;
+
+    -webkit-transition: margin-left 0.25s ease;
+    -moz-transition: margin-left 0.25s ease;
+    -o-transition: margin-left 0.25s ease;
+    transition: margin-left 0.25s ease;
+}
+button.circle:hover .fa,
+.circle a:hover .fa,
+.circle-parent:hover button.circle .fa,
+.circle-parent .circle a .fa {
+    margin-left: -200px;
+}
+.circle a:hover .fa {
+    background: #338ff2;
+}
+.circle .text {
+    position: absolute;
+    top: 0;
+    left: 200px;
+    display: block;
+    width: 100%;
+    font-size: 14px;
+    text-decoration: none;
+
+}
+button.circle:hover .text,
+.circle a:hover .text,
+.circle-parent:hover button.circle .text,
+.circle-parent:hover .circle a .text {
+    left: 0;
+    text-decoration: none;
+}
+.circle:before {
+    position: absolute;;
+    content: "";
+    background: url("../img/assets/circle-lines.png") no-repeat;
+}
+.circle-left {
+    left: -66px;
+    top: -20px;
+}
+.circle-left:before { top: -42px; left: 60px; width: 122px; height: 89px; }
+.circle-left-middle {
+    left: -16px;
+    top: 62px;
+}
+.circle-left-middle:before { top: -115px; left: 50px; width: 30px; height: 146px; background-position: -150px top; }
+.circle-right-middle {
+    left: 16px;
+    top: 62px;
+}
+.circle-right-middle:before { top: -115px; left: 14px; width: 30px; height: 146px; background-position: -216px top; }
+.circle-right {
+    left: 66px;
+    top: -20px;
+}
+.circle-right:before { top: -42px; left: -72px; width: 122px; height: 89px; background-position: right top; }
+
+.half-circle { text-align: center; }
+.half-circle > span,
+.half-circle > .span {
+    padding: 20px 40px 40px;
+    color: #FFF;
+    background: #c2c2c2;
+    background: rgba(0,0,0, 0.21);
+
+    -moz-border-radius: 0px 0px 9999px 9999px;
+    -webkit-border-radius: 0px 0px 9999px 9999px;
+    border-radius: 0px 0px 9999px 9999px;
+}
+
+@media(max-width: 767px) {
+    .circle-container {
+        width: 304px !important;
+        margin: 0 auto  !important;
+    }
+    .circle {
+        position: static;
+        overflow: hidden;
+        margin: 25px;
+    }
+    .circle:before {
+        display: none;
+    }
+}
+
+/* --- After Have Account Box --- */
+#after-account hr {
+    margin: 30px 33.33333% 30px 30px;
+    opacity: 0.2;
+}
+#after-account .after-account-desc {
+    background: rgba(53, 149, 255, 0.80);
+    padding: 10px 15px;
+    text-align: center;
+}
+@media(max-width: 991px) {
+    #after-account {
+        padding-left: 30px !important;
+        padding-right: 30px !important;
+    }
+    #after-account .row {
+        background: rgba(0,0,0, 0.5);
+        padding: 15px 0;
+    }
+    #after-account hr {
+        margin: 30px 0;
+    }
+    #after-account h2,
+    #after-account p {
+        text-align: center !important;
+    }
+}

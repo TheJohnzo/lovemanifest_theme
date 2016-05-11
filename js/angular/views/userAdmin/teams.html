@@ -1,0 +1,125 @@
+<div class="col-md-12">
+    <message message-group="usersection"></message>
+</div>
+<div class="col-md-12">
+    <div class="col-xs-6">
+        <div class="inner blue-block text-center">
+            <h2 class="h3"><strong>Create</strong> A New Team!</h2>
+            <p>Ready to unite with fellow super heros? Give your group a name!</p>
+            <div class="padding-vert-half">
+                <input type="text" class="form-control" ng-model="teamToCreate" placeholder="Your New Team Name..." />
+                <message message-group="create_team"></message>
+            </div>
+            <div class="padding-vert-half">
+                <button
+                    user-action action="newTeam"
+                    no-classes
+                    callback="afterCreateTeam"
+                    send-name="teamToCreate"
+                    class="btn btn-default btn-lg fill-width">
+                    Create Team
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-6">
+        <div class="inner blue-block text-center">
+            <h2 class="h3"><strong>Remove Me</strong> From a Team</h2>
+            <p>Adventures Over? You can remove yourself from a team here.</p>
+            <div class="padding-vert-half">
+                <select class="form-control select-lg" ng-model="teamToRemoveFrom" ng-options="id as name for (id, name) in user.teams" />
+                <message message-group="remove_from_team"></message>
+            </div>
+            <div class="padding-vert-half">
+                <button
+                    user-action action="removeFromTeam"
+                    send-team-id="teamToRemoveFrom"
+                    class="btn btn-default btn-lg fill-width">
+                    Remove Me
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="padding-vert-half col-xs-12">
+
+        <h2 class="h3"><strong>Team Leader</strong> Management</h2>
+
+        <label>Select an Existing Team</label>
+        <select
+            ng-model="teamToMod"
+            ng-options="id as name for (id, name) in user.team_leads"
+            user-action action="teamToManage"
+            select-name="team_id"
+            class="form-control"
+        />
+        <message message-group="leader_management"></message>
+        <div ng-show="team.toManage">
+            <div class="clearfix padding-vert-half">
+                <button
+                    ng-click="inviteMemebers = !inviteMemebers"
+                    ng-class="{
+                        'btn-primary' : !inviteMemebers,
+                        'btn-danger' : inviteMemebers
+                    }"
+                    class="btn btn-sm pull-right padding-horz-half">
+                    {{inviteMemebers ? 'Cancle' : 'Invite New Members'}}
+                </button>
+                <button
+                    ng-show="inviteMemebers"
+                    user-action
+                    action="teamEmailInvites"
+                    pending-text="Sending"
+                    success-text="Sent!"
+                    send-emails="team.inviteEmails"
+                    send-team-id="team.toManage.id"
+                    no-classes
+                    class="btn btn-primary btn-sm pull-right padding-horz-half space-horz-xs">
+                    <i class="fa fa-envelope-o"></i> Send Invites
+                </button>
+            </div>
+            <message message-group="member_invite"></message>
+            <div ng-show="inviteMemebers" class="padding-vert-half">
+                <label><i class="fa fa-envelope"></i> Email Invites</label>
+                <p class="text-left">
+                    Send out invites to your friends! Just separate each email with a comma.<br/>
+                    <span class="label label-default">Example: friend1@email.com, friend2@email.com</span>
+                    <span class="label label-info">Maximum 10 Emails</span>
+                </p>
+                <input ng-model="team.inviteEmails" type="text" class="form-control" />
+            </div>
+            <h2 class="h4 inline-block">Members</h2>
+            <ul class="list-group">
+                <li ng-repeat="(userId, user) in team.toManage.members" class="list-group-item">
+                    <span ng-bind="user.name"></span>
+                    <span
+                        ng-show="user.is_leader && team.toManage.leaders.length > 1"
+                        user-action
+                        action="demoteUser"
+                        send-user-id="userId"
+                        no-classes
+                        class="label label-danger pull-right">
+                        Demote User
+                    </span>
+                    <span
+                        ng-show="!user.is_leader"
+                        user-action
+                        action="promoteUser"
+                        send-user-id="userId"
+                        no-classes
+                        class="label label-primary pull-right">
+                        Promote User
+                    </span>
+                </li>
+            </ul>
+            <button
+                user-action
+                action="disbandTeam"
+                send-team-id="team.toManage.id"
+                no-classes
+                class="btn btn-sm btn-danger pull-right padding-horz-half">
+                Disband Team
+            </button>
+        </div>
+    </div>
+</div>

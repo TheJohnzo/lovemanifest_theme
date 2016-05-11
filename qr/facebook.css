@@ -1,0 +1,50 @@
+h1 { font-size: 20px; }
+h2 { font-size: 16px; }
+.facebook textarea,
+.facebook input[type="text"],
+.facebook input[type="password"],
+.facebook input[type="datetime"],
+.facebook input[type="datetime-local"],
+.facebook input[type="date"],
+.facebook input[type="month"],
+.facebook input[type="time"],
+.facebook input[type="week"],
+.facebook input[type="email"],
+.facebook input[type="url"],
+.facebook input[type="search"],
+.facebook input[type="tel"],
+.facebook input[type="color"],
+.facebook .uneditable-input
+{
+	padding: 2px 6px;
+	margin-bottom: 0;
+}
+.facebook select,
+.facebook input[type="file"]
+{
+	height: 28px;
+}
+
+.qr_page_title { padding: 0 20px; }
+
+.qr_about_content #Cart66CartForm { padding: 20px; background: #F1F3F8; border: 1px solid #FFFFFF; color: #333333; }
+.qr_about_content #viewCartTable { font-size: 11px; }
+.qr_about_content #viewCartTable th { color: gray; }
+.qr_about_content #viewCartTable tbody td { border-color: gray; font-size: 12px; }
+
+.facebook input.input-block-level { color: #FFF; background-color: #5B74A8; width: 100%; border: 1px solid; border-color: #29447E #29447E #1A356E; }
+
+.facebook #payment-cardExpirationMonth { width: 15%; }
+.facebook #payment-cardExpirationYear { width: 21.7%; }
+
+#Cart66CheckoutButton { width: 40%; background: #5B74A8; border: 1px solid; border-color: #29447E #29447E #1A356E; color: #FFF; height: 28px; }
+.description { margin: 0px 0 15px; color: #999; font-size: 11px; }
+
+#Cart66CheckoutButtonDiv .description { clear: both; margin-top: 10px; }
+
+.qr_site_link_cont { padding: 0 20px 20px 20px; width: auto; }
+
+#billingInfo { width: 49%; float: left; padding-left: 0; padding-right: 0; }
+[for=Cart66CheckoutButton] { margin-top: 21px; }
+
+/* form layout */

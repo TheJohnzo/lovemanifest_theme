@@ -1,0 +1,144 @@
+.display-block { display: block; }
+
+.pull-none {
+    float: none !important;
+}
+
+.text-left { text-align: left !important; }
+
+/* --- text color helpers --- */
+.cascade-text-color h1, .cascade-text-color .h1, .cascade-text-color h2, .cascade-text-color .h2,
+.cascade-text-color h3, .cascade-text-color .h3, .cascade-text-color h4, .cascade-text-color .h4,
+.cascade-text-color h5, .cascade-text-color .h5, .cascade-text-color h6, .cascade-text-color .h6 {
+    color: inherit;
+}
+
+/* --- Borders --- */
+.border-none { border: none !important; }
+
+/* --- Button Extensions --- */
+.btn-content { white-space: normal; }
+
+/* --- Sizing --- */
+.fill { width: 100%; height: 100%; }
+
+/* --- Spacing Classes --- */
+.margin { margin: 30px !important; }
+.margin-none { margin: 0 !important; }
+.margin-half { margin: 15px !important; }
+.margin-vert { margin-top: 30px !important; margin-bottom: 30px !important; }
+.margin-vert-half { margin-top: 15px !important; margin-bottom: 15px !important; }
+.margin-vert-none { margin-top: 0 !important; margin-bottom: 0 !important; }
+.margin-horz { margin-left: 30px !important; margin-right: 30px !important; }
+.margin-horz-half { margin-left: 15px !important; margin-right: 15px !important; }
+.padding { padding: 30px !important; }
+.padding-top { padding-top: 30px !important; }
+.padding-half { padding: 15px !important; }
+.padding-none { padding: 0 !important; }
+.padding-vert { padding-top: 30px !important; padding-bottom: 30px !important; }
+.padding-vert-half { padding-top: 15px !important; padding-bottom: 15px !important; }
+.padding-horz { padding-left: 30px !important; padding-right: 30px !important; }
+.padding-horz-half { padding-left: 15px !important; padding-right: 15px !important; }
+.padding-left-none { padding-left: 0 !important; }
+.padding-right-none { padding-right: 0 !important; }
+.padding-left { padding: 30px !important; }
+.padding-left-half { padding: 15px !important; }
+.padding-right { padding-left: 30px !important; }
+.padding-right-half { padding-right: 15px !important; }
+
+@media(min-width:1200px) {
+    .margin-lg { margin: 30px !important; }
+    .margin-half-lg { margin: 15px !important; }
+    .margin-vert-lg { margin-top: 30px !important; margin-bottom: 30px !important; }
+    .margin-vert-half-lg { margin-top: 15px !important; margin-bottom: 15px !important; }
+    .margin-horz-lg { margin-left: 30px !important; margin-right: 30px !important; }
+    .margin-horz-half-lg { margin-left: 15px !important; margin-right: 15px !important; }
+    .padding-lg { padding: 30px !important; }
+    .padding-half-lg { padding: 15px !important; }
+    .padding-vert-lg { padding-top: 30px !important; padding-bottom: 30px !important; }
+    .padding-vert-half-lg { padding-top: 15px !important; padding-bottom: 15px !important; }
+    .padding-horz-lg { padding-left: 30px !important; padding-right: 30px !important; }
+    .padding-horz-half-lg { padding-left: 15px !important; padding-right: 15px !important; }
+    .padding-none-lg { padding: 0 !important; }
+    .padding-left-none-lg { padding-left: 0 !important; }
+    .padding-right-none-lg { padding-right: 0 !important; }
+    .padding-left-lg { padding: 30px !important; }
+    .padding-left-half-lg { padding: 15px !important; }
+    .padding-right-lg { padding-left: 30px !important; }
+    .padding-right-half-lg { padding-right: 15px !important; }
+}
+@media(max-width:1199px) {
+    .margin-md { margin: 30px !important; }
+    .margin-half-md { margin: 15px !important; }
+    .margin-vert-md { margin-top: 30px !important; margin-bottom: 30px !important; }
+    .margin-vert-half-md { margin-top: 15px !important; margin-bottom: 15px !important; }
+    .margin-horz-md { margin-left: 30px !important; margin-right: 30px !important; }
+    .margin-horz-half-md { margin-left: 15px !important; margin-right: 15px !important; }
+    .padding-md { padding: 30px !important; }
+    .padding-half-md { padding: 15px !important; }
+    .padding-vert-md { padding-top: 30px !important; padding-bottom: 30px !important; }
+    .padding-vert-half-md { padding-top: 15px !important; padding-bottom: 15px !important; }
+    .padding-horz-md { padding-left: 30px !important; padding-right: 30px !important; }
+    .padding-horz-half-md { padding-left: 15px !important; padding-right: 15px !important; }
+    .padding-none-md { padding: 0 !important; }
+    .padding-left-none-md { padding-left: 0 !important; }
+    .padding-right-none-md { padding-right: 0 !important; }
+    .padding-left-md { padding: 30px !important; }
+    .padding-left-half-md { padding: 15px !important; }
+    .padding-right-md { padding-left: 30px !important; }
+    .padding-right-half-md { padding-right: 15px !important; }
+}
+@media(max-width:991px) {
+    .margin-sm { margin: 30px !important; }
+    .margin-half-sm { margin: 15px !important; }
+    .margin-vert-sm { margin-top: 30px !important; margin-bottom: 30px !important; }
+    .margin-vert-half-sm { margin-top: 15px !important; margin-bottom: 15px !important; }
+    .margin-horz-sm { margin-left: 30px !important; margin-right: 30px !important; }
+    .margin-horz-half-sm { margin-left: 15px !important; margin-right: 15px !important; }
+    .padding-sm { padding: 30px !important; }
+    .padding-half-sm { padding: 15px !important; }
+    .padding-vert-sm { padding-top: 30px !important; padding-bottom: 30px !important; }
+    .padding-vert-half-sm { padding-top: 15px !important; padding-bottom: 15px !important; }
+    .padding-horz-sm { padding-left: 30px !important; padding-right: 30px !important; }
+    .padding-horz-half-sm { padding-left: 15px !important; padding-right: 15px !important; }
+    .padding-none-sm { padding: 0 !important; }
+    .padding-left-none-sm { padding-left: 0 !important; }
+    .padding-right-none-sm { padding-right: 0 !important; }
+    .padding-left-sm { padding: 30px !important; }
+    .padding-left-half-sm { padding: 15px !important; }
+    .padding-right-sm { padding-left: 30px !important; }
+    .padding-right-half-sm { padding-right: 15px !important; }
+}
+@media(max-width:767px) {
+    .margin-xs { margin: 30px !important; }
+    .margin-row-xs { margin-left: -15px; margin-right: -15px; }
+    .margin-half-xs { margin: 15px !important; }
+    .margin-vert-xs { margin-top: 30px !important; margin-bottom: 30px !important; }
+    .margin-vert-half-xs { margin-top: 15px !important; margin-bottom: 15px !important; }
+    .margin-horz-xs { margin-left: 30px !important; margin-right: 30px !important; }
+    .margin-horz-half-xs { margin-left: 15px !important; margin-right: 15px !important; }
+    .padding-xs { padding: 30px !important; }
+    .padding-half-xs { padding: 15px !important; }
+    .padding-vert-xs { padding-top: 30px !important; padding-bottom: 30px !important; }
+    .padding-vert-half-xs { padding-top: 15px !important; padding-bottom: 15px !important; }
+    .padding-horz-xs { padding-left: 30px !important; padding-right: 30px !important; }
+    .padding-horz-half-xs { padding-left: 15px !important; padding-right: 15px !important; }
+    .padding-none-xs { padding: 0 !important; }
+    .padding-left-none-xs { padding-left: 0 !important; }
+    .padding-right-none-xs { padding-right: 0 !important; }
+    .padding-left-xs { padding: 30px !important; }
+    .padding-left-half-xs { padding: 15px !important; }
+    .padding-right-xs { padding-left: 30px !important; }
+    .padding-right-half-xs { padding-right: 15px !important; }
+}
+
+/*---  Heights  ---*/
+.min-h-200 {
+    min-height: 200px;
+}
+.min-h-250 {
+    min-height: 250px;
+}
+.min-h-300 {
+    min-height: 300px;
+}

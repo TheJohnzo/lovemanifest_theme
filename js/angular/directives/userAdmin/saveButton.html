@@ -1,0 +1,25 @@
+<div class="padding-vert-half text-right" style="clear:both">
+    <button
+        ng-click="save()"
+        ng-class="{
+            'btn-primary' : state == 'ready' || state == 'pending',
+            'btn-success' : state == 'success',
+            'btn-danger' : state == 'error'
+        }"
+        ng-switch on="state"
+        class="btn">
+
+        <i
+            ng-repeat="(type, icon) in icons"
+            ng-show="icon != '' && state == type"
+            ng-class="{ 'fa-spin' : type == 'pending' }"
+
+            class="fa fa-{{icon}}">
+        </i>
+
+            &nbsp;
+
+        <span ng-repeat="(type, label) in text" ng-bind="label" ng-show="state == type"></span>
+
+    </button>
+</div>

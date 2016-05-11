@@ -1,0 +1,52 @@
+#ua [ng-controller] {
+    margin-top: 30px;
+}
+#ua h1, #ua .h1, #ua h2, #ua .h2, #ua h3, #ua .h3, #ua h4, #ua .h4, #ua h5, #ua .h5, #ua h6, #ua .h6 {
+    font-family: exoregular;
+    margin: 10px 0;
+}
+#ua h1 strong, #ua h1.strong, #ua .h1.strong,
+#ua h2 strong, #ua h2.strong, #ua .h2.strong,
+#ua h3 strong, #ua h3.strong, #ua .h3.strong,
+#ua h4 strong, #ua h4.strong, #ua .h4.strong,
+#ua h5 strong, #ua h5.strong, #ua .h5.strong,
+#ua h6 strong, #ua h6.strong, #ua .h6.strong {
+    font-family: exodemibold;
+}
+#ua h1 {
+    font-family: florencesans_scregular;
+}
+#ua h1 strong {
+    font-family: florencesans_sc_blackregular;
+}
+#ua .campaign-image,
+#ua .campaign-title {
+    height: 170px;
+}
+#ua .campaign-image {
+    position: relative;
+    background-size: cover;
+    background-position: center center;
+}
+
+#ua .ta-editor {
+    min-height: 300px;
+    height: auto;
+    overflow: auto;
+    font-family: inherit;
+    font-size: 100%;
+}
+@media(max-width:1199px) {
+    #ua .campaign-image,
+    #ua .campaign-title {
+        height: 210px;
+    }
+}
+@media(max-width:991px) {
+}
+@media(max-width:767px) {
+    #ua .campaign-title {
+        height: auto;
+        margin-bottom: 50px;
+    }
+}

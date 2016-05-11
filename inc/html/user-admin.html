@@ -1,0 +1,33 @@
+<div ng-app="userAdmin" id="ua">
+
+    <div class="container" ng-controller="AppCtrl">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="padding-horz-half-xs">
+                    <h1 class="h3"><strong>{{ user.first_name }}'s</strong> Account</h1>
+                    <nav>
+                        <ul class="nav">
+                            <li ng-repeat="link in app.links" class="col-md-12 col-xs-3" id="{{link.title | snakeCase}}">
+                                <a href="{{link.url}}" ng-attr-target="{{link.self ? '_self' : '' }}">
+                                    <i ng-show="link.icon" class="fa fa-{{link.icon}} fa-lg"></i>
+                                    <span>{{link.title}}</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="col-md-8 col-md-offset-1">
+                <div class="col-xs-12 space-half-bottom" ng-show="userMessages.hasMessages">
+                    <div class="col-xs-12">
+                        <message message-group="User" path="User"></message>
+                    </div>
+                </div>
+
+                <div ng-view></div>
+
+            </div>
+        </div>
+    </div>
+
+</div>

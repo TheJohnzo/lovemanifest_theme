@@ -1,0 +1,57 @@
+<div ng-app="setupCampaign" id="ua">
+    <div class="container" ng-controller="AppCtrl">
+        <div ng-show="userCampaign.errors">
+            <div ng-repeat="error in userCampaign.errors" class="alert alert-danger">
+                {{error[0]}}
+            </div>
+        </div>
+        <div ng-show="!userCampaign.errors">
+            <div class="row">
+                <div class="col-sm-7 col-md-6 padding-left-none padding-left-half-xs campaign-title">
+                    <h1>
+                        You've Chosen To Campaign For
+                        <strong>{{userCampaign.campaign_title}}</strong>
+                    </h1>
+                    <button class="btn btn-complete" ng-click="deleteCampaign()"><i class="fa fa-lg fa-sign-in fa-flip-horizontal"></i> Changed Your Mind? Choose a Different Campaign</button>
+                </div>
+                <div class="col-sm-5 col-md-6 padding-none campaign-image" style="{{userCampaign.image | backgroundImageCss}}"></div>
+            </div>
+
+            <user-campaign-type></user-campaign-type>
+
+            <user-campaign-goal></user-campaign-goal>
+
+            <user-campaign-method></user-campaign-method>
+
+            <user-campaign-details></user-campaign-details>
+
+            <div class="row">
+                <button ng-show="showActivityDetails" ng-click="startCampaign()" class="btn btn-lg btn-complete pull-right">Start Your Campaign!</button>
+            </div>
+            <div class='modal fade' id='create-team'>
+                <div class='modal-dialog'>
+                    <div class='modal-content'>
+                        <div class='modal-header'>
+                            <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>
+                        </div>
+                        <div class='modal-body text-center'>
+                            <label for='title'>Team Name</label>
+                            <input
+                                    ng-model="newTeamName"
+                                    ng-keydown="newTeamKeyDown($event)"
+                                    type="text"
+                                    id="title"
+                                    name="title"
+                                    value=""
+                                    class="form-control overlay-control-blue"
+                                    placeholder="Your Team Name" />
+                        </div>
+                        <div class='modal-footer'>
+                            <button class="btn btn-outline" ng-click="newTeam()">Create Team</button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+        </div>
+    </div>
+</div>
