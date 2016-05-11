@@ -8,13 +8,13 @@ License URI: license.txt
 
 @charset "utf-8";
 body {
-	background: #181200;
-	font-family: exoregular, Arial, sans-serif;
+    background: #181200;
+    font-family: exoregular, Arial, sans-serif;
     font-size: 16px;
 }
 
 h1, h2, .h1, .h2 {
-	font-family: 'florencesans_sc_blackregular', Arial, sans-serif;
+    font-family: 'florencesans_sc_blackregular', Arial, sans-serif;
     font-weight: normal;
 }
 
@@ -299,38 +299,38 @@ div.gform_wrapper .gfield_error .ginput_complex .ginput_right input[type=passwor
 /* --- header --- */
 .header { background: #241e0d; }
 
-.header	h1 { margin: 0; padding: 0; line-height: 0; }
-.header	.logo,
+.header h1 { margin: 0; padding: 0; line-height: 0; }
+.header .logo,
 .header .nav > li > a {
-	height: 54px;
+    height: 54px;
     opacity: 1;
     text-decoration: none;
 }
 
-.header	.logo {
-	display: block;
-	padding: 2px 10px;
-	background: #fdfbc5;
-	text-align: center;
+.header .logo {
+    display: block;
+    padding: 2px 10px;
+    background: #fdfbc5;
+    text-align: center;
 }
 
 .header .navbar {
-	padding: 0;
-	margin: 0;
-	border: 0;
+    padding: 0;
+    margin: 0;
+    border: 0;
 }
 .header .nav {
-	float: right;
+    float: right;
 }
 .header .nav li:hover,
 .header .nav li:hover::before {
     cursor: pointer;
 }
 .header .nav a {
-	color: #FFF;
-	font-family: 'exoregular', Arial, sans-serif;
-	line-height: 24px;
-	font-size: 15px;
+    color: #FFF;
+    font-family: 'exoregular', Arial, sans-serif;
+    line-height: 24px;
+    font-size: 15px;
 }
 .header .nav .fa > a { padding-left: 45px; }
 .header .nav .fa.fa-only > a {
@@ -340,12 +340,12 @@ div.gform_wrapper .gfield_error .ginput_complex .ginput_right input[type=passwor
     display: none;
 }
 .header .nav li.fa:before {
-	position: absolute;
+    position: absolute;
     display: block;
-	top: 18px;
-	left: 15px;
-	font-size: 1.4em;
-	z-index: 10;
+    top: 18px;
+    left: 15px;
+    font-size: 1.4em;
+    z-index: 10;
 }
 .header .nav li.fa-lg:before {
     top: 21px;
@@ -911,7 +911,7 @@ button.red-block:active,
 .btn-complete:hover, .btn-complete:focus, .btn-complete:active, .btn-complete.active, .open .dropdown-toggle.btn-complete,
 .btn-danger:hover, .btn-danger:focus, .btn-danger:active, .btn-danger.active, .open .dropdown-toggle.btn-danger {
     color: #FFF;
-	background: #c40e0e;
+    background: #c40e0e;
 }
 .show-action .red-block:hover { background: rgba(196,14,14, 0.7); }
 
@@ -948,8 +948,8 @@ button.dark-red-block:active,
 .label-primary,
 .lwa input[type="submit"],
 .label-info {
-	background: #3595ff;
-	color: #FFF;
+    background: #3595ff;
+    color: #FFF;
 }
 .show-action .blue-block { background: rgba(53,149,255, 0.6); }
 .btn-primary:hover,
@@ -957,7 +957,7 @@ button.dark-red-block:active,
 .nav .blue-block:hover > a,
 .nav .blue-block.active > a,
 .lwa input[type="submit"]:hover {
-	background: #338ff2;
+    background: #338ff2;
 }
 .show-action .blue-block:hover { background: rgba(51,143,242, 0.7); }
 
@@ -1314,4 +1314,9 @@ button.dark-red-block:active,
 }
 .Cart66ButtonPrimary {
     display: block !important;
+}
+
+/* custom for fixing password field */
+.ginput_right {
+    margin-left: 0px !important;
 }
