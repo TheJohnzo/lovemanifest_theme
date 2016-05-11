@@ -57,7 +57,18 @@ class LmUserAdmin {
         if($accept) $prompt[$code]['accept'] = $accept;
         if($dismiss) $prompt[$code]['dismiss'] = $dismiss;
 
-        add_user_meta(get_current_user_id(), 'admin_prompt', $prompt, false);
+		//JGS 5/6/2016 - only add prompt if prompt of same message doesn't exist.
+		$existing_prompts = self::get_user_prompts();
+		$found = false;
+		foreach ($existing_prompts as $e_p) {
+			foreach ($e_p as $sub_e_p) {
+				if ($prompt[$code]['message'] === $sub_e_p['message']) {
+					$found = true;
+				}
+			}
+		}
+		
+        if (!$found) add_user_meta(get_current_user_id(), 'admin_prompt', $prompt, false);
 
         $calls++;
 
@@ -435,7 +446,7 @@ class LmUserAdmin {
                 </p>
             ";
 
-            wp_mail( $non_member_message, $subject, $non_member_message, $headers );
+            wp_mail( $non_member_emails, $subject, $non_member_message, $headers );
 
             $response['emailed'] = array_merge($response['emailed'], $non_member_emails);
         }
