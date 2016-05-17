@@ -117,5 +117,5 @@ class Lm_User_Admin {
 
 
 add_filter('lm_ajax_assignments', array('Lm_User_Admin','ajax_assignments'));
-add_shortcode('user admin', array('Lm_User_Admin','interface_output'));
-add_shortcode('setup campaign', array('Lm_User_Admin','interface_output'));
+add_shortcode('user_admin', array('Lm_User_Admin','interface_output'));
+add_shortcode('setup_campaign', array('Lm_User_Admin','interface_output'));

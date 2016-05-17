@@ -559,11 +559,11 @@ class LmUserAdmin {
         $enqueue_fn_name = str_replace(' ', '_', $tag) . '_enqueue';
         self::$enqueue_fn_name();
 
-        $file_name = str_replace(' ', '-', $tag).'.html';
+        $file_name = str_replace('_', '-', $tag).'.html';
         $html_file = dirname(__FILE__) . "/html/{$file_name}";
 
 
-
+        $html = null;
         if(file_exists($html_file)) {
             $html = file_get_contents($html_file);
         }
@@ -629,6 +629,7 @@ class LmUserAdmin {
 
 }
 
+
 add_filter('lm_ajax_assignments', array('LmUserAdmin','ajax_assignments'));
-add_shortcode('user admin', array('LmUserAdmin','interface_output'));
-add_shortcode('setup campaign', array('LmUserAdmin','interface_output'));
+add_shortcode('user_admin', array('LmUserAdmin','interface_output'));
+add_shortcode('setup_campaign', array('LmUserAdmin','interface_output'));

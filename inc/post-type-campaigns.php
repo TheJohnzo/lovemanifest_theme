@@ -28,7 +28,7 @@ class LM_Campaigns {
         //add_filter('lm_ajax_assignments', array(__CLASS__,'ajax_assignments'));
 
         add_shortcode('campaigns', array(__CLASS__, 'list_campaigns'));
-        add_shortcode('user campaign selection', array(__CLASS__, 'user_campaign_select'));
+        add_shortcode('user_campaign_selection', array(__CLASS__, 'user_campaign_select'));
 
 		add_action('bw_metabox_init', array(__CLASS__, 'add_metabox_data'));
 		//$this->taxonomies();
