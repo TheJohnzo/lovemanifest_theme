@@ -1,12 +1,17 @@
 <?php get_header(); 
-	// force exclude Home & School and i35-Sponsor
-	$excluded = array(69, 70);
+    // force exclude Home & School and i35-Sponsor
+    $excluded = array(69, 70);
 ?>
     <div class="container padding-top">
         <div class="row">
             <div class="col-md-8 col-xs-12">
                 <div class="content-column">
-                    <?php get_template_part('content', 'post'); ?>
+                    <?php get_template_part('content', 'post'); 
+                        // If comments are open or we have at least one comment, load up the comment template.
+                        if ( comments_open() || get_comments_number() ) :
+                            comments_template();
+                        endif;
+                    ?>
                 </div>
 
                 <div class="clearfix pagination-links margin-vert">
